@@ -141,7 +141,7 @@ spec:
                      name: my-database-backup
                      key: database_password
               - name: BACKUP_TIMESTAMP
-                value: "_%Y_%m_%d"
+                value: "%Y_%m_%d_"
               - name: SLACK_ENABLED
                 value: "<true/false>"
               - name: SLACK_CHANNEL

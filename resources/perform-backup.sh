@@ -25,7 +25,7 @@ fi
 for CURRENT_DATABASE in ${ALL_DATABASE_NAMES//,/ }
 do
 
-    DUMP=$CURRENT_DATABASE`date +$BACKUP_TIMESTAMP`.sql
+    DUMP=`date +$BACKUP_TIMESTAMP`$CURRENT_DATABASE.sql
     # Perform the database backup. Put the output to a variable. If successful upload the backup to S3, if unsuccessful print an entry to the console and the log, and set has_failed to true.
     if sqloutput=$(mysqldump -u $TARGET_DATABASE_USER -h $TARGET_DATABASE_HOST -p$TARGET_DATABASE_PASSWORD -P $TARGET_DATABASE_PORT $CURRENT_DATABASE 2>&1 > /tmp/$DUMP)
     then
